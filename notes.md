@@ -1,12 +1,21 @@
 Hypothesis: MVP in 10 hours of coding.
 
-MVP Road Map
+> Time Left: 9 hours
 
-- Authentication using Devise and a Devise User model
-- Ingredient Model (name)
-- User_Ingredient join table (amount?)
-- Recipe (instructions, name)
-- Recipe_Ingredients (amount)
+MVP Road Map
+[X] Authentication using Devise and a Devise User model
+[X] Ingredient Model (name)
+Ingredients:
+[X] create action (view and controller)
+[X] read action
+[] destroy action?
+
+[X] User_Ingredient join table
+[X] create action (create ingredient + join table and view)
+[X] destroy action ()
+
+[] Recipe (instructions, name)
+[] Recipe_Ingredients (amount)
 
 Do I have the necessary ingredients in order to make this recipe?
 
@@ -19,9 +28,12 @@ Do I have the necessary ingredients in order to make this recipe?
   - search is a custom SQL query (get recipes where all ingredients are included in my pantry)
 
 - Repo on Github: https://github.com/MaxSultan/recipe_book
-- Deploy on FLy.io
+- Deploy on Fly.io
+- Github actions
+- rails tests
 
-Time Left: 10 hours
+v1: just ingredient names
+v2: ingredients with amounts
 
 Add Basic Devise Auth:
 bundle add devise
