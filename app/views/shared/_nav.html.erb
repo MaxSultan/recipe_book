@@ -5,6 +5,9 @@
         </li>
             <% if user_signed_in? %>
                 <li>
+                    <%= link_to "Recipes", recipes_path %>
+                </li>
+                <li>
                     <%= link_to "Profile", edit_user_registration_path %>
                 </li>
                 <li>

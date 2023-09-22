@@ -1,0 +1,31 @@
+<h1>Recipes#new</h1>
+<p>Find me in app/views/recipes/new.html.erb</p>
+
+<%=form_with model: @recipe do |form| %>
+
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.label :instructions %>
+    <%= form.text_area :instructions, size: '50x10' %>
+
+    <div data-controller="nested-form">
+        <template data-nested-form-target="template">
+            <%= form.fields_for :ingredients, Ingredient.new, child_index: 'NEW_RECORD' do |ingredient_fields| %>
+                <%= render "nested_ingredient", form: ingredient_fields %>
+            <% end %>
+        </template>
+
+        <%= form.fields_for :ingredients, @recipe.ingredients.build do |ingredient_fields| %>
+            <%= render "nested_ingredient", form: ingredient_fields %>
+         <% end %> 
+
+        <div data-nested-form-target="links">
+            <%= link_to "Add Ingredient", "#", data: {controller: 'nested-form', action: "click->nested-form#add_association"} %>
+        </div>
+    </div>
+
+    <%= form.collection_select :id, Ingredient.all, :id, :name, {}, { multiple: true, class: "existing-ingredients" } %>
+
+    <%= form.submit %>
+<% end %>

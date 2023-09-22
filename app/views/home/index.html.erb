@@ -1,5 +1,7 @@
 <h1>HOME</h1>
 
-<% if user_signed_in? %>
+<h2>Recipes</h2>
 
+<% @recipes.each do |recipe| %>
+    <%= link_to recipie_path(recipe) %>
 <% end %>

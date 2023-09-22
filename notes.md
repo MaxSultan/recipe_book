@@ -1,6 +1,6 @@
 Hypothesis: MVP in 10 hours of coding.
 
-> Time Left: 9 hours
+> Time Left: 7 hours
 
 MVP Road Map
 [X] Authentication using Devise and a Devise User model
@@ -16,6 +16,8 @@ Ingredients:
 
 [] Recipe (instructions, name)
 [] Recipe_Ingredients (amount)
+
+[] should I refactor Ingredients controller actions to use a separate controller when creating join tables and ingredients?
 
 Do I have the necessary ingredients in order to make this recipe?
 
@@ -41,3 +43,8 @@ rails g devise:install
 rails g devise:views
 rails g devise User
 rails db:migrate
+
+When is has_many fine and when do you need has_many_through?
+How do you decide what controller a feature action goes to?
+
+has_nested_attributes
