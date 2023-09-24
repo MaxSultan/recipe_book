@@ -15,6 +15,13 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.create(recipe_params)
 
+    unless params.dig(:recipe, :ingredients).empty?
+      ingreients = params[:recipe][:ingredients].reject(&:empty?)
+      ingreients.each do |ingredient|
+        @recipe.recipe_ingredients.create(ingredient_id: ingredient)
+      end 
+    end 
+
     if @recipe.save
       redirect_to @recipe
     else
@@ -25,7 +32,7 @@ class RecipesController < ApplicationController
   private 
 
   def recipe_params
-    params.require(:recipe).permit(:name, :instructions, ingredients_attributes: [:id, :name, :_destroy])
+    params.require(:recipe).permit(:name, :instructions, ingredient_ids: [], ingredients_attributes: [:id, :name, :_destroy])
   end
 
 end

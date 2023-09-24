@@ -1,13 +1,21 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<h1>Create New Recipe</h1>
+
+<%
+=begin%>
+ TODO: 
+ - error handling 
+ - saving form state when there is an error (currently if i add ingredients, i have to re-add them)
+
+<%
+=end%>
 
 <%=form_with model: @recipe do |form| %>
 
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, required: true %>
 
     <%= form.label :instructions %>
-    <%= form.text_area :instructions, size: '50x10' %>
+    <%= form.text_area :instructions, size: '50x10', required: true %>
 
     <div data-controller="nested-form">
         <template data-nested-form-target="template">
@@ -21,11 +29,12 @@
          <% end %> 
 
         <div data-nested-form-target="links">
-            <%= link_to "Add Ingredient", "#", data: {controller: 'nested-form', action: "click->nested-form#add_association"} %>
+            <%= link_to "Add Ingredient", "#", data: {action: "click->nested-form#add_association"} %>
         </div>
     </div>
 
-    <%= form.collection_select :id, Ingredient.all, :id, :name, {}, { multiple: true, class: "existing-ingredients" } %>
+    <%= form.label :ingredients %>
+    <%= form.collection_select :ingredients, Ingredient.all, :id, :name, {}, { multiple: true, class: "existing-ingredients" } %> 
 
     <%= form.submit %>
 <% end %>
