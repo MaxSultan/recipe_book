@@ -1,6 +1,6 @@
 Hypothesis: MVP in 10 hours of coding.
 
-> Time Left: 6 hours
+> Time Left: 5 hours
 
 MVP Road Map
 [X] Authentication using Devise and a Devise User model
@@ -17,8 +17,8 @@ Ingredients:
 [X] Recipe (instructions, name)
 [X] Recipe_Ingredients (amount)
 
-[] Show Recipes where all ingredients are in my pantry
-[] add tailwind
+[X] Show Recipes where all ingredients are in my pantry
+[X] add tailwind
 [] tests for controllers, views, and models
 
 ## v2.0
