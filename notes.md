@@ -1,6 +1,6 @@
 Hypothesis: MVP in 10 hours of coding.
 
-> Time Left: 7 hours
+> Time Left: 6 hours
 
 MVP Road Map
 [X] Authentication using Devise and a Devise User model
@@ -14,10 +14,18 @@ Ingredients:
 [X] create action (create ingredient + join table and view)
 [X] destroy action ()
 
-[] Recipe (instructions, name)
-[] Recipe_Ingredients (amount)
+[X] Recipe (instructions, name)
+[X] Recipe_Ingredients (amount)
 
-[] should I refactor Ingredients controller actions to use a separate controller when creating join tables and ingredients?
+[] Show Recipes where all ingredients are in my pantry
+[] add tailwind
+[] tests for controllers, views, and models
+
+## v2.0
+
+[] refactor Ingredients controller -> pantry controller for adding user_ingredients
+[] add amount to user_ingredients
+[] add amount to recipe_ingredients
 
 Do I have the necessary ingredients in order to make this recipe?
 
@@ -34,8 +42,7 @@ Do I have the necessary ingredients in order to make this recipe?
 - Github actions
 - rails tests
 
-v1: just ingredient names
-v2: ingredients with amounts
+## Notes
 
 Add Basic Devise Auth:
 bundle add devise

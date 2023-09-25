@@ -1,9 +1,12 @@
 <nav>
-    <ul>
-        <li>
+    <ul class="flex gap-4 bg-gray-400 p-8">
+        <li class='me-auto'>
             <%= link_to "Home", root_path %>
         </li>
             <% if user_signed_in? %>
+                <li>
+                    <%= link_to "Ingredients", ingredients_path %>
+                </li>
                 <li>
                     <%= link_to "Recipes", recipes_path %>
                 </li>
