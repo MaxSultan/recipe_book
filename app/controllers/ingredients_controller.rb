@@ -4,6 +4,7 @@ class IngredientsController < ApplicationController
   def index
     @ingredients = Ingredient.all
     @my_ingredients = current_user.ingredients
+    @makeable_recipes = Recipe.with_all_ingredients(current_user.id).uniq
   end
 
   def new

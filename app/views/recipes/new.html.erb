@@ -17,7 +17,7 @@
     <%= form.label :instructions %>
     <%= form.text_area :instructions, size: '50x10', required: true %>
 
-    <div data-controller="nested-form">
+    <div data-controller="nested-form" class="flex flex-col gap-8 mb-8">
         <template data-nested-form-target="template">
             <%= form.fields_for :ingredients, Ingredient.new, child_index: 'NEW_RECORD' do |ingredient_fields| %>
                 <%= render "nested_ingredient", form: ingredient_fields %>
@@ -29,12 +29,12 @@
          <% end %> 
 
         <div data-nested-form-target="links">
-            <%= link_to "Add Ingredient", "#", data: {action: "click->nested-form#add_association"} %>
+            <%= link_to "Add Ingredient", "#", data: {action: "click->nested-form#add_association"}, class:'pointer-events-auto rounded-md px-4 py-2 text-center font-medium shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50' %>
         </div>
     </div>
 
     <%= form.label :ingredients %>
     <%= form.collection_select :ingredients, Ingredient.all, :id, :name, {}, { multiple: true, class: "existing-ingredients" } %> 
 
-    <%= form.submit %>
+    <%= form.submit "Create Recipe", class:'block pointer-events-auto rounded-md px-4 py-2 text-center font-medium shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50' %>
 <% end %>

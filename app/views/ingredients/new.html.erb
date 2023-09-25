@@ -1,8 +1,7 @@
-<h1>Ingredients#new</h1>
-<p>Find me in app/views/ingredients/new.html.erb</p>
+<h1>New Ingredient</h1>
 
 <%= form_with model: @ingredient do |form| %>
     <%= form.label :name %>
     <%= form.text_field :name %>
-    <%= form.submit %>
+    <%= form.submit "Add Ingredient", class:'mt-8 pointer-events-auto rounded-md px-4 py-2 text-center font-medium shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50' %>
 <% end %>
