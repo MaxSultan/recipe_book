@@ -1,2 +1,6 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if notice %>
+    <p class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 m-4 rounded relative"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 m-4 rounded relative" role="alert"><%= alert %></p>
+<% end %>

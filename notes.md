@@ -8,7 +8,6 @@ MVP Road Map
 Ingredients:
 [X] create action (view and controller)
 [X] read action
-[] destroy action?
 
 [X] User_Ingredient join table
 [X] create action (create ingredient + join table and view)
@@ -23,9 +22,17 @@ Ingredients:
 
 ## v2.0
 
+[] Styling and theming
+[] mobile
+[] tests for controllers, views, and models
 [] refactor Ingredients controller -> pantry controller for adding user_ingredients
 [] add amount to user_ingredients
 [] add amount to recipe_ingredients
+[] Update SQL query to include amount check
+[] improve mobile experience
+[] look at linking out to other recipe sites
+[] Rails Admin
+[] favicon
 
 Do I have the necessary ingredients in order to make this recipe?
 
@@ -55,3 +62,14 @@ When is has_many fine and when do you need has_many_through?
 How do you decide what controller a feature action goes to?
 
 has_nested_attributes
+
+## Fly Workflow
+
+Deploying - `fly deploy`
+Rails console - `fly ssh console --pty -C "/rails/bin/rails console"`
+
+more info: https://fly.io/docs/rails/getting-started/existing/
+
+## Icons
+
+https://icones.js.org/collection/lucide?s=up
