@@ -1,3 +1,3 @@
 class Ingredient < ApplicationRecord
-    validates_uniqueness_of :name, presence: true
+    validates :name, uniqueness: true, presence: true
 end

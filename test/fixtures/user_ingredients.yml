@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  ingredient: one
+  user: user1
+  ingredient: ingredient1
 
 two:
-  user: two
-  ingredient: two
+  user: user1
+  ingredient: ingredient2
+
+three:
+  user: user1
+  ingredient: ingredient3

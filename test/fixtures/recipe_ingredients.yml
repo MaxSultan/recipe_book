@@ -2,8 +2,12 @@
 
 one:
   recipe: one
-  ingredient: one
+  ingredient: ingredient1
 
 two:
-  recipe: two
-  ingredient: two
+  recipe: one
+  ingredient: ingredient2
+
+three:
+  recipe: one
+  ingredient: ingredient3
