@@ -95,3 +95,18 @@ Errors running tests:
 > RuntimeError: Foreign key violations found in your fixture data. Ensure you aren't referring to labels that don't exist on associations.
 
 fix: all test become invalid when fixtures are messed up, you are referencing a fixture from another file. likely you changed the name, and now your referencing a fixture that doesn't exist
+
+### Controller/Integration tests
+
+setup devise helpers
+in `test/test_helper.rb` add this line: `include Devise::Test::IntegrationHelpers`
+
+then we can use the login and log out methods like so:
+
+```rb
+  setup do
+    sign_in users(:user1)
+  end
+```
+
+where `sign_in` is a devise helper method and `users(:user1)` is a fixture
