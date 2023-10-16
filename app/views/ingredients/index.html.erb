@@ -3,14 +3,14 @@
 <h2>All Ingredients</h2>
 <ul class="flex flex-col gap-2">
     <% @ingredients.each do |ingredient| %>
-        <li class="flex items-center justify-between gap-16 m-0"><%= ingredient.name %> <%= button_to 'Add ingredient to pantry', add_to_pantry_path(ingredient_id: ingredient.id), class: 'ml-4 flex-none rounded-md px-2 py-[0.3125rem] font-medium text-slate-700 shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50' if @my_ingredients.exclude?(ingredient) %></li>
+        <li class="flex items-center justify-between gap-16 m-0"><%= ingredient.name %> <%= button_to 'Add ingredient to pantry', pantry_items_path(ingredient_id: ingredient.id), class: 'ml-4 flex-none rounded-md px-2 py-[0.3125rem] font-medium text-slate-700 shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50' if @my_ingredients.exclude?(ingredient) %></li>
     <% end %>
 </ul>
 
 <h2>My Pantry</h2>
 <ul class="flex flex-col gap-2">
     <% @my_ingredients.each do |ingredient| %>
-        <li class="flex items-center justify-between gap-16 m-0"><%= ingredient.name %> <%= button_to 'Remove from pantry', ingredient_path(ingredient), method: :delete, class: 'ml-4 flex-none rounded-md px-2 py-[0.3125rem] font-medium text-slate-700 shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50' %></li>
+        <li class="flex items-center justify-between gap-16 m-0"><%= ingredient.name %> <%= button_to 'Remove from pantry', pantry_item_path(ingredient), method: :delete, class: 'ml-4 flex-none rounded-md px-2 py-[0.3125rem] font-medium text-slate-700 shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50' %></li>
     <% end %>
     <%= link_to "Add an ingredient", new_ingredient_path, class:'mt-8 pointer-events-auto rounded-md px-4 py-2 text-center font-medium shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50' %>
 </ul>
