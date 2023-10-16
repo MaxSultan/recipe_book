@@ -6,6 +6,22 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:user1)
   end
 
+  test "should redirect unauthenticated user" do
+    sign_out :user
+    get  recipes_url
+    assert_response :redirect
+  end 
+
+  test "should get index" do
+    get recipes_url
+    assert_response :success
+  end 
+
+  test "should get show" do
+    get recipes_show_url, params: {id: recipes(:one).id}
+    assert_response :success
+  end 
+
   test "should get new" do
     get recipes_new_url
     assert_response :success

@@ -1,4 +1,5 @@
 class PantryItemsController < ApplicationController
+    before_action :authenticate_user!
 
     def create
         @ingredients = Ingredient.all
@@ -14,7 +15,7 @@ class PantryItemsController < ApplicationController
     
     def destroy
         ingredient = current_user.ingredients.find_by(id: params[:id])
-        @user_ingredient = current_user.user_ingredients.find_by(ingredient_id: params[:id])
+        @user_ingredient = current_user.user_ingredients.find_by(ingredient: ingredient)
         @user_ingredient.destroy 
         redirect_to ingredients_path, notice: "Removed #{ingredient.name} from your pantry"
     end

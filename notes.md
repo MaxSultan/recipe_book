@@ -96,7 +96,7 @@ Errors running tests:
 
 fix: all test become invalid when fixtures are messed up, you are referencing a fixture from another file. likely you changed the name, and now your referencing a fixture that doesn't exist
 
-### Controller/Integration tests
+### Controller/Integration tests cheat sheet
 
 setup devise helpers
 in `test/test_helper.rb` add this line: `include Devise::Test::IntegrationHelpers`
@@ -107,6 +107,38 @@ then we can use the login and log out methods like so:
   setup do
     sign_in users(:user1)
   end
+
+  # and
+
+  sign_out :user
 ```
 
 where `sign_in` is a devise helper method and `users(:user1)` is a fixture
+
+### add params to a path/url helper
+
+```rb
+post recipes_url, params: { recipe: { name: 'test', instructions: 'test test', ingredients: [] } }
+```
+
+### types of assertions
+
+```rb
+assert_difference('Recipe.count') do
+  #...
+end
+
+assert_no_difference('Recipe.count') do
+  #...
+end
+
+assert_response :success
+assert_response :redirect
+```
+
+### url helpers vs path helpers
+
+### adding params to a url vs calling it as a function
+
+urls that need :id params need to be called as functions
+posts need params explicitly specified
