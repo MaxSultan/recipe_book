@@ -21,7 +21,9 @@ class PantryItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get destroy' do
-    users(:user1)
+    # rubocop:disable Lint/UselessAssignment
+    current_user = users(:user1)
+    # rubocop:enable Lint/UselessAssignment
     assert_difference('current_user.ingredients.count', -1) do
       delete pantry_item_url(@ingredient)
     end
