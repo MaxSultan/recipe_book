@@ -21,24 +21,6 @@ class IngredientsController < ApplicationController
     end 
   end
 
-  def add_to_pantry
-    @ingredients = Ingredient.all
-    @my_ingredients = current_user.ingredients
-
-    @added_ingredient = current_user.user_ingredients.create(ingredient_id: params[:ingredient_id])
-    if @added_ingredient.save
-      redirect_to ingredients_path, notice: "Added #{Ingredient.find(params[:ingredient_id]).name} to your pantry"
-    else
-      render :index, status: :unprocessable_entity
-    end 
-  end 
-
-  def destroy
-    @user_ingredient = current_user.user_ingredients.find_by(ingredient_id: params[:id])
-    @user_ingredient.destroy 
-    redirect_to ingredients_path
-  end
-
   private
 
   def ingredient_params

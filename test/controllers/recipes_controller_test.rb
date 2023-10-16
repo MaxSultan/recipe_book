@@ -5,11 +5,6 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:user1)
   end
-  
-  # test "should get show" do
-  #   get recipes_show_url
-  #   assert_response :success
-  # end
 
   test "should get new" do
     get recipes_new_url
