@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RecipesController < ApplicationController
   before_action :authenticate_user!
 
@@ -13,27 +15,27 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-  def create
+  def create # rubocop:todo Metrics/MethodLength
     @recipe = Recipe.create(recipe_params)
 
     unless params.dig(:recipe, :ingredients).empty?
       ingreients = params[:recipe][:ingredients].reject(&:empty?)
       ingreients.each do |ingredient|
         @recipe.recipe_ingredients.create(ingredient_id: ingredient)
-      end 
-    end 
+      end
+    end
 
     if @recipe.save
       redirect_to @recipe
     else
       render :new, status: :unprocessable_entity
     end
-  end 
-
-  private 
-
-  def recipe_params
-    params.require(:recipe).permit(:name, :instructions, ingredient_ids: [], ingredients_attributes: [:id, :name, :_destroy])
   end
 
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :instructions, ingredient_ids: [],
+                                                         ingredients_attributes: %i[id name _destroy])
+  end
 end

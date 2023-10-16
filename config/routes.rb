@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'recipes/show'
   get 'recipes/new'
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   resources :recipes
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root to: 'home#index'
   # Defines the root path route ("/")
   # root "articles#index"
 end

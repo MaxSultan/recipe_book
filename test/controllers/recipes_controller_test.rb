@@ -1,42 +1,42 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class RecipesControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     sign_in users(:user1)
   end
 
-  test "should redirect unauthenticated user" do
+  test 'should redirect unauthenticated user' do
     sign_out :user
-    get  recipes_url
+    get recipes_url
     assert_response :redirect
-  end 
+  end
 
-  test "should get index" do
+  test 'should get index' do
     get recipes_url
     assert_response :success
-  end 
+  end
 
-  test "should get show" do
-    get recipes_show_url, params: {id: recipes(:one).id}
+  test 'should get show' do
+    get recipes_show_url, params: { id: recipes(:one).id }
     assert_response :success
-  end 
+  end
 
-  test "should get new" do
+  test 'should get new' do
     get recipes_new_url
     assert_response :success
   end
 
-  test "can create a new recipe" do
+  test 'can create a new recipe' do
     assert_difference('Recipe.count') do
       post recipes_url, params: { recipe: { name: 'test', instructions: 'test test', ingredients: [] } }
     end
-  end 
+  end
 
-  test "cant create a new recipe with invalid attributes" do
+  test 'cant create a new recipe with invalid attributes' do
     assert_no_difference('Recipe.count') do
       post recipes_url, params: { recipe: { name: '', instructions: '', ingredients: [] } }
     end
-  end 
-
+  end
 end
