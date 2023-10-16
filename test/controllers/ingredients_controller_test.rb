@@ -18,8 +18,19 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_ingredient_url, params: {id: 1}
+    get new_ingredient_url
     assert_response :success
   end
 
+  test "can create a new ingredient" do
+    assert_difference('Ingredient.count') do
+      post ingredients_url, params: { ingredient: {name: 'random'}}
+    end
+  end 
+
+  test "cant create a new ingredient with invalid attributes" do
+    assert_no_difference('Ingredient.count') do
+      post ingredients_url, params: { ingredient: {name: ''}}
+    end
+  end 
 end

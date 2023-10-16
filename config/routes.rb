@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :ingredients, only: %i[index create new destroy]
-  resources :pantry_items, only: %i[create destroy]
+  resources :pantry_items, only: %i[create destroy delete]
   resources :recipes
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
