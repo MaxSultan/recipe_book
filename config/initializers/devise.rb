@@ -14,7 +14,9 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
+  # rubocop:todo Layout/LineLength
   # config.secret_key = 'b32dea753c998ee49e3ad28ac4706fe239fcfb07af37fb6fe0ee33ead7b63a192b21681661aef901de1cfbc0156626dfd1fd8c36b8a0fe089878e3d5999d4eb7'
+  # rubocop:enable Layout/LineLength
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +128,9 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
+  # rubocop:todo Layout/LineLength
   # config.pepper = 'f8105b5b370ae77d04867605f615db392782cd243a5a88ebcd6fe6520a26a2a55b03054385d9de67197a1e80d36f07eca0dea0f674e1bac2692f152819cf0016'
+  # rubocop:enable Layout/LineLength
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false

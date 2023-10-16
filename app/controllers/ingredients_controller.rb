@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class IngredientsController < ApplicationController
   before_action :authenticate_user!
 
@@ -18,12 +20,12 @@ class IngredientsController < ApplicationController
       redirect_to  ingredients_path
     else
       render :new, status: :unprocessable_entity
-    end 
+    end
   end
 
   private
 
   def ingredient_params
     params.require(:ingredient).permit(:name)
-  end 
+  end
 end
