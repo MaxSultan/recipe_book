@@ -48,12 +48,18 @@ Styling
 [] Add a favicon
 [] Make home index a landing page
 
+Accessibility
+[] Make a better implementation of a multiselect element
+
 API
 [] look at linking out to other recipe sites/ spoonful API
 [] Rails Admin
 
 Feature: weekly meal planner
 [] Weekly meal planner that makes grocery list
+
+Database
+[] add DB validations that match model validations to prevent race conditions
 
 ## Notes
 
