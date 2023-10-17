@@ -10,5 +10,9 @@ AllCops:
     - "config/environments/development.rb"
     - "config/environments/production.rb"
     - "spec/spec_helper.rb"
+    - /home/runner/work/recipe_book/recipe_book/vendor/**.*.rb
+    - /opt/hostedtoolcache/Ruby/3.0.3/x64/lib/**.*.rb
+    - gemfiles/vendor/bundle/**/*
+    - vendor/bundle/**/*
 Style/Documentation:
   Enabled: false
