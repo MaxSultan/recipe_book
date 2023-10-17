@@ -1,7 +1,9 @@
 Do I have the necessary ingredients in order to make this recipe?
-Hypothesis: MVP in 10 hours of coding.
+Hypothesis #1: MVP in 10 hours of coding. (done)
 
-> Time Left: 5 hours
+Hypothesis #2: Weekly meal planner that makes grocery list (8 hours)
+
+> Time Left: 8 hours
 
 MVP Road Map
 [X] Authentication using Devise and a Devise User model
@@ -19,20 +21,39 @@ Ingredients:
 
 [X] Show Recipes where all ingredients are in my pantry
 [X] add tailwind
-[] tests for controllers, views, and models
+[X] Validation Tests
+[X] Integration/ controller tests
+[] System Tests
 
 ## v2.0
 
-[] refactor Ingredients controller -> pantry controller for adding user_ingredients
-[] CI/CD rspec tests, rubocop, and fly.io deploy
-[] Styling and theming
+Refactoring
+[X] refactor Ingredients controller -> pantry controller for adding user_ingredients
+
+CI/CD
+[X] CI/CD rspec tests job
+[X] CI/CD rubocop linting job
+[] CI/CD fly.io deploy https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
+
+Feature: Ingredient Amounts
 [] add amount to user_ingredients
 [] add amount to recipe_ingredients
 [] Update SQL query to include amount check
-[] improve mobile experience
-[] look at linking out to other recipe sites
+
+Styling
+[] Styling and
+[] add theming in tailwindCSS
+[] wireframes for consistent experience
+[] improve mobile experience for all pages
+[] Add a favicon
+[] Make home index a landing page
+
+API
+[] look at linking out to other recipe sites/ spoonful API
 [] Rails Admin
-[] favicon
+
+Feature: weekly meal planner
+[] Weekly meal planner that makes grocery list
 
 ## Notes
 
@@ -46,7 +67,7 @@ rails db:migrate
 When is has_many fine and when do you need has_many_through?
 How do you decide what controller a feature action goes to?
 
-has_nested_attributes
+## jhas_nested_attributes
 
 - im creating a recipe but i need to create ingredients at the same time
 - dynamically adding a piece of html to my form
@@ -142,21 +163,3 @@ assert_response :redirect
 
 urls that need :id params need to be called as functions
 posts need params explicitly specified
-
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
-        with:
-          bundler-cache: true
-      # Add or replace any other lints here
-      - name: Security audit dependencies
-        run: bin/bundler-audit --update
-      - name: Security audit application code
-        run: bin/brakeman -q -w2
-      - name: Lint Ruby files
-        run: bin/rubocop --parallel
