@@ -9,7 +9,7 @@
 <%
 =end%>
 
-<%=form_with model: @recipe do |form| %>
+<%=form_with model: @recipe, html: {class: 'flex flex-col gap-4 p-4 bg-gray-100 border-gray-400 text-gray-700 border rounded'} do |form| %>
 
     <%= form.label :name %>
     <%= form.text_field :name, required: true %>
