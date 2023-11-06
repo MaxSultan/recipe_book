@@ -8,6 +8,7 @@ Its features include:
 - The ability to create Ingredients and recipes, add/remove ingredients from my pantry, view recipes where my pantry includes all needed ingredients
 - Devise session based authentication
 - accepts_nested_attributes in order to allow a user to create a recipe and ingredients at the same time
+- ability to add multiple new ingredients to recipe through stimulus controller
 - model validations
 - Integration/controller tests
 - model validation tests

@@ -19,7 +19,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
-    get recipes_show_url, params: { id: recipes(:one).id }
+    get recipe_url(recipes(:one))
     assert_response :success
   end
 
@@ -32,6 +32,8 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Recipe.count') do
       post recipes_url, params: { recipe: { name: 'test', instructions: 'test test', ingredients: [] } }
     end
+
+    assert_redirected_to recipe_url(Recipe.last)
   end
 
   test 'cant create a new recipe with invalid attributes' do

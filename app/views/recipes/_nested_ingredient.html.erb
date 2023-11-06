@@ -1,4 +1,4 @@
-<%= content_tag :div, class: "nested-fields" do %>    
-    <%= form.label :name %>
+<%= content_tag :div, class: "nested-fields flex flex-col gap-4 p-4 bg-gray-200 border-gray-500 text-gray-800 border rounded" do %>    
+    <%= form.label :name, 'New Ingredient Name' %>
     <%= form.text_field :name, placeholder: "New Ingredient" %>
 <% end %>

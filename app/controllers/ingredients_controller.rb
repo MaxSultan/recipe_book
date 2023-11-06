@@ -17,9 +17,9 @@ class IngredientsController < ApplicationController
     @ingredient = current_user.ingredients.create(ingredient_params)
 
     if @ingredient.save
-      redirect_to  ingredients_path
+      redirect_to ingredients_path
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: "#{@ingredient.name} already exists and cannot be re-created"
     end
   end
 
